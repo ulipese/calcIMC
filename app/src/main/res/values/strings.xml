@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">JaimeeSousa</string>
+    <string name="TextNum1">Primeiro número</string>
+    <string name="TextNum2">Segundo número</string>
+    <string name="button1">Calcule</string>
+    <string name="text1">Coloque um número...</string>
+    <string name="text2">Coloque outro número...</string>
+</resources>
