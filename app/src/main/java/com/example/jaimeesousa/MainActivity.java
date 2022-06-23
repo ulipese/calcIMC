@@ -7,45 +7,37 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 public class MainActivity extends AppCompatActivity {
     EditText edit1, edit2; // declarando as vars e seus tipos
     TextView resultText;
-    int num1, num2;
+    double peso, altura;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        edit1 = findViewById(R.id.TextNum1);
-        edit2 = findViewById(R.id.TextNum2);
+        edit1 = findViewById(R.id.inputPeso);
+        edit2 = findViewById(R.id.inputAltura);
         resultText = findViewById(R.id.result);
     }
+    public void CalcularIMC (View view) {
+        peso =  Double.parseDouble(edit1.getText().toString());
+        altura = Double.parseDouble(edit2.getText().toString());
+        double result = peso / (Math.pow(altura, 2));
 
-    public void Subtrair (View view) {
-        num1 =  Integer.parseInt(edit1.getText().toString()); //
-        num2 = Integer.parseInt(edit2.getText().toString());
-        double result = num1 - num2;
-        resultText.setText("O resultado da subtração foi " + Double.valueOf(result).toString());
-    }
-    public void Somar (View view) {
-        num1 =  Integer.parseInt(edit1.getText().toString()); //
-        num2 = Integer.parseInt(edit2.getText().toString());
-        double result = num1 + num2;
-        resultText.setText("O resultado da soma foi " + Double.valueOf(result).toString());
-    }
-    public void Multiplicar (View view) {
-        num1 =  Integer.parseInt(edit1.getText().toString()); //
-        num2 = Integer.parseInt(edit2.getText().toString());
-        double result = num1 * num2;
-        resultText.setText("O resultado da multiplicação foi " + Double.valueOf(result).toString());
-    }
-    public void Dividir (View view) {
-        num1 =  Integer.parseInt(edit1.getText().toString()); //
-        num2 = Integer.parseInt(edit2.getText().toString());
-        double result = num1 / num2;
-        resultText.setText("O resultado da divisão foi " + Double.valueOf(result).toString());
+
+        if (result < 18.5) {
+            resultText.setText("O seu IMC é: " + Double.valueOf(result).toString() + ", você está abaixo do peso.");
+        }
+        if (result >= 18.6 && result < 25) {
+            resultText.setText("O seu IMC é: " + Double.valueOf(result).toString() + ", você está no peso ideal.");
+        }
+        if (result >= 25 && result < 30) {
+            resultText.setText("O seu IMC é: " + Double.valueOf(result).toString() + ", você está pouco acima do peso ideal.");
+        }
+        if (result >= 30) {
+            resultText.setText("O seu IMC é: " + Double.valueOf(result).toString() + ", você está muito acima do peso ideal.");
+        }
     }
 }
