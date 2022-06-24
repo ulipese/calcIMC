@@ -8,7 +8,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    EditText edit1, edit2; // declarando as vars e seus tipos
+    EditText editPeso, editAltura;
     TextView resultText;
     double peso, altura;
 
@@ -17,15 +17,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        edit1 = findViewById(R.id.inputPeso);
-        edit2 = findViewById(R.id.inputAltura);
+        editPeso = findViewById(R.id.inputPeso);
+        editAltura = findViewById(R.id.inputAltura);
         resultText = findViewById(R.id.result);
     }
     public void CalcularIMC (View view) {
-        peso =  Double.parseDouble(edit1.getText().toString());
-        altura = Double.parseDouble(edit2.getText().toString());
-        double result = peso / (Math.pow(altura, 2));
-
+        peso =  Double.parseDouble(editPeso.getText().toString());
+        altura = Double.parseDouble(editAltura.getText().toString());
+        double result = Math.round(peso / (Math.pow(altura, 2)));
 
         if (result < 18.5) {
             resultText.setText("O seu IMC é: " + Double.valueOf(result).toString() + ", você está abaixo do peso.");
