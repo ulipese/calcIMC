@@ -31,31 +31,37 @@ public class MainActivity extends AppCompatActivity {
         double result = Math.round(peso / (Math.pow(altura, 2)));
 
         if (radioFem.isChecked()) {
-            if (result < 18.5) {
+            if (result < 19) {
                 resultText.setText("O seu IMC é: " + Double.valueOf(result).toString() + ", você está abaixo do peso.");
             }
-            if (result >= 18.6 && result < 25) {
+            else if (result >= 19 && result < 24) {
                 resultText.setText("O seu IMC é: " + Double.valueOf(result).toString() + ", você está no peso ideal.");
             }
-            if (result >= 25 && result < 30) {
-                resultText.setText("O seu IMC é: " + Double.valueOf(result).toString() + ", você está pouco acima do peso ideal.");
+            else if (result >= 24 && result < 29) {
+                resultText.setText("O seu IMC é: " + Double.valueOf(result).toString() + ", você está tem obesidade leve.");
             }
-            if (result >= 30) {
-                resultText.setText("O seu IMC é: " + Double.valueOf(result).toString() + ", você está muito acima do peso ideal.");
+            else if (result >= 29 && result < 39) {
+                resultText.setText("O seu IMC é: " + Double.valueOf(result).toString() + ", você tem obesidade moderada.");
+            }
+            else {
+                resultText.setText("O seu IMC é: " + Double.valueOf(result).toString() + ", você tem obesidade mórbida.");
             }
         }
-        if (radioMasc.isChecked()) {
-            if (result < 18.5) {
+        else {
+            if (result < 20) {
                 resultText.setText("O seu IMC é: " + Double.valueOf(result).toString() + ", você está abaixo do peso.");
             }
-            if (result >= 18.6 && result < 25) {
+            else if (result >= 20 && result < 25) {
                 resultText.setText("O seu IMC é: " + Double.valueOf(result).toString() + ", você está no peso ideal.");
             }
-            if (result >= 25 && result < 30) {
-                resultText.setText("O seu IMC é: " + Double.valueOf(result).toString() + ", você está pouco acima do peso ideal.");
+            else if (result >= 25 && result < 30) {
+                resultText.setText("O seu IMC é: " + Double.valueOf(result).toString() + ", você está tem obesidade leve.");
             }
-            if (result >= 30) {
-                resultText.setText("O seu IMC é: " + Double.valueOf(result).toString() + ", você está muito acima do peso ideal.");
+            else if (result >= 30 && result < 40) {
+                resultText.setText("O seu IMC é: " + Double.valueOf(result).toString() + ", você tem obesidade moderada.");
+            }
+            else {
+                resultText.setText("O seu IMC é: " + Double.valueOf(result).toString() + ", você tem obesidade mórbida.");
             }
         }
     }
